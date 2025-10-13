@@ -21,18 +21,21 @@
   </header>
 
   <section class="hero">
+    <div class="overlay"></div>
     <div class="hero-content">
+      <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Rifat Hasan" class="avatar">
       <h2>Hello, I’m <span>Rifat Hasan</span></h2>
-      <p>A student passionate about technology, coding, and creativity.  
-      I build web experiences and share knowledge through writing.</p>
-      <a href="#projects" class="btn">View My Work</a>
+      <p>Student | Web Developer | Writer</p>
+      <div class="buttons">
+        <a href="#projects" class="btn">View Projects</a>
+        <a href="https://github.com/rifathasan" target="_blank" class="btn-outline">GitHub</a>
+      </div>
     </div>
   </section>
 
   <section id="about" class="section">
     <h2>About Me</h2>
-    <p>I’m a curious learner who enjoys solving problems, exploring web development, and writing articles that help others learn.  
-    Currently focusing on modern web technologies and personal projects.</p>
+    <p>I’m a passionate learner and creative developer. I enjoy building clean, efficient web experiences and writing about what I learn. My goal is to grow as a developer while helping others through knowledge sharing.</p>
   </section>
 
   <section id="skills" class="section">
@@ -43,7 +46,7 @@
       <span>JavaScript</span>
       <span>Python</span>
       <span>GitHub</span>
-      <span>Writing</span>
+      <span>Content Writing</span>
     </div>
   </section>
 
@@ -52,15 +55,15 @@
     <div class="project-grid">
       <div class="card">
         <h3>Portfolio Website</h3>
-        <p>This website — designed and built to showcase my work, skills, and creativity.</p>
+        <p>This is my personal website built using HTML, CSS, and GitHub Pages.</p>
       </div>
       <div class="card">
-        <h3>GitHub Repositories</h3>
-        <p>Explore my code, open-source projects, and experiments on <a href="https://github.com/rifathasan" target="_blank">GitHub</a>.</p>
+        <h3>GitHub Projects</h3>
+        <p>Explore all my open-source projects on <a href="https://github.com/rifathasan" target="_blank">GitHub</a>.</p>
       </div>
       <div class="card">
         <h3>Future Blog</h3>
-        <p>Coming soon — I’ll share thoughts, tutorials, and insights on tech and learning.</p>
+        <p>Coming soon — tutorials and insights on tech, learning, and growth.</p>
       </div>
     </div>
   </section>
@@ -68,12 +71,27 @@
   <section id="contact" class="section">
     <h2>Contact</h2>
     <p>📧 Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <p>🌐 GitHub: <a href="https://github.com/rifathasan" target="_blank">rifathasan</a></p>
+    <div class="social-links">
+      <a href="https://github.com/rifathasan" target="_blank">GitHub</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://medium.com" target="_blank">Medium</a>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Rifat Hasan | Built with ❤️ and GitHub Pages</p>
+    <p>© 2025 Rifat Hasan | Designed with ❤️ using GitHub Pages</p>
   </footer>
+
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-
