@@ -1,97 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rifat Hasan | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rifat Hasan — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#0b1220">
+  <style>
+    :root{
+      --bg: #071021;
+      --card: rgba(255,255,255,0.03);
+      --muted: rgba(255,255,255,0.65);
+      --accent: linear-gradient(90deg,#06b6d4,#7c3aed);
+      --glass: rgba(255,255,255,0.04);
+      --glass-2: rgba(255,255,255,0.02);
+      --radius: 14px;
+      --glass-border: rgba(255,255,255,0.06);
+      font-family: 'Poppins',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.08), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.06), transparent),
+                  var(--bg);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+      overflow-x:hidden;
+    }
+
+    header{
+      position:fixed;left:0;right:0;top:0;z-index:40;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-weight:800;letter-spacing:0.2px;margin:0;font-size:18px}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-weight:600;font-size:14px}
+    nav a:hover{color:white;transform:translateY(-2px)}
+
+    /* HERO / COVER */
+    .cover{
+      height:56vh;min-height:420px;display:flex;align-items:center;color:#fff;position:relative;padding-top:78px;
+      background-image: url('https://images.unsplash.com/photo-1505765056904-9a3d0b0d98a8?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=000');
+      background-size:cover;background-position:center;filter:contrast(1.02) saturate(1.05);
+    }
+    .cover::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(7,16,33,0.46), rgba(7,16,33,0.7));}
+    .cover .hero-inner{position:relative;z-index:5;max-width:1100px;margin:0 auto;padding:44px 24px;display:flex;gap:28px;align-items:center}
+
+    .avatar{
+      width:120px;height:120px;border-radius:18px;flex:0 0 120px;object-fit:cover;border:4px solid rgba(255,255,255,0.08);box-shadow:0 6px 30px rgba(0,0,0,0.6);
+      transform:translateY(0);transition:transform .6s cubic-bezier(.2,.9,.3,1);
+    }
+    .hero-content{padding:12px 8px}
+    .hero-content h1{margin:0;font-size:28px;letter-spacing:0.2px}
+    .hero-content h1 span{background:var(--accent);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-content p.lead{margin:8px 0 14px;color:var(--muted);font-weight:500}
+
+    .cta{display:flex;gap:12px;align-items:center}
+    .btn{background:linear-gradient(90deg,#06b6d4,#7c3aed);padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700;color:#061226;box-shadow:0 8px 30px rgba(124,58,237,0.12);}
+    .btn-outline{border:1px solid rgba(255,255,255,0.06);padding:9px 14px;border-radius:10px;color:var(--muted);text-decoration:none;font-weight:700}
+
+    /* verse box */
+    .verse-box{position:absolute;left:24px;top:18px;z-index:6;background:var(--glass);border-radius:12px;padding:10px 14px;border:1px solid var(--glass-border);backdrop-filter:blur(6px);font-size:13px}
+    .verse-box small{display:block;color:var(--muted);font-weight:600}
+    .verse-text{margin-top:6px;font-size:13px;opacity:0.95}
+
+    main{max-width:1100px;margin:0 auto;padding:36px 24px 120px}
+
+    /* bio card */
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:22px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid var(--glass-border)}
+    .bio h2{margin:0 0 8px;font-size:20px}
+    .bio p{color:var(--muted);margin:0 0 12px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tag{border-radius:999px;padding:8px 10px;background:var(--glass-2);font-weight:600;font-size:13px;border:1px solid rgba(255,255,255,0.02)}
+
+    .social{display:flex;gap:10px;margin-top:12px}
+    .social a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;background:transparent;border:1px solid rgba(255,255,255,0.04);text-decoration:none}
+    .social svg{width:18px;height:18px;display:block}
+
+    /* side card */
+    .side h3{margin:0 0 8px}
+    .side p{color:var(--muted);font-size:14px}
+    .links-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+    .links-list a{padding:10px;border-radius:10px;text-decoration:none;color:var(--muted);border:1px solid rgba(255,255,255,0.02);font-weight:600}
+    .links-list a:hover{color:white}
+
+    /* sections */
+    section.section{margin-top:30px}
+    .project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project-grid .card{padding:18px}
+    .project-grid h3{margin:0 0 6px}
+
+    footer{padding:36px 24px;text-align:center;color:var(--muted);font-size:14px}
+
+    /* animations */
+    .fade-in{opacity:0;transform:translateY(12px);animation:fadeUp .9s forwards;animation-delay:0.15s}
+    .fade-in.delay{animation-delay:0.35s}
+    @keyframes fadeUp{to{opacity:1;transform:none}}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr;}
+      .project-grid{grid-template-columns:repeat(1,1fr)}
+      .avatar{width:96px;height:96px;border-radius:12px}
+    }
+
+    @media (max-width:480px){
+      .hero-inner{flex-direction:column;align-items:flex-start}
+      nav a{display:none}
+      header .container{justify-content:space-between}
+      .verse-box{left:14px;right:14px}
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1 class="logo">Rifat Hasan</h1>
+      <div class="logo">Rifat Hasan</div>
       <nav>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#writings">Writings</a>
+        <a href="#learning">Learning Centre</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Rifat Hasan" class="avatar">
-      <h2>Hello, I’m <span>Rifat Hasan</span></h2>
-      <p>Student | Web Developer | Writer</p>
-      <div class="buttons">
-        <a href="#projects" class="btn">View Projects</a>
-        <a href="https://github.com/rifathasan" target="_blank" class="btn-outline">GitHub</a>
+  <section class="cover">
+    <div class="verse-box" aria-hidden="false">
+      <small>Surah 82:6 (Al-Infitar — Verse 6)</small>
+      <div class="verse-text">"يَا أَيُّهَا الْإِنسَانُ مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ"</div>
+    </div>
+
+    <div class="hero-inner">
+      <img class="avatar" src="https://github.com/rifathasan.png" alt="Rifat Hasan">
+      <div class="hero-content">
+        <h1>Hello, I’m <span>Rifat Hasan</span></h1>
+        <p class="lead">Learner | Ed‑Tech Teacher | Writer</p>
+        <p style="max-width:56ch;color:rgba(230,238,248,0.9)">A Muslim, believer, currently studying CSE at BRAC University. Interested in Islamic Theology, Quranic interpretations, Mathematics, coding problems and concepts. I upload my staff and short lectures on my YouTube channel. I also teach mathematics part‑time on edtech platforms like Mojaru and Lobdhi.</p>
+        <div style="height:12px"></div>
+        <div class="cta">
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn-outline" href="/writings.html">Writings</a>
+          <a class="btn-outline" href="/learning-centre.html">Learning Centre</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>I’m a passionate learner and creative developer. I enjoy building clean, efficient web experiences and writing about what I learn. My goal is to grow as a developer while helping others through knowledge sharing.</p>
-  </section>
+  <main>
+    <div class="grid">
+      <div>
+        <div class="card bio fade-in">
+          <h2>Short Bio</h2>
+          <p>Assalamu Alaikum — I’m a CSE student at BRAC University with a deep interest in Islamic theology and Quranic interpretation alongside mathematics and programming. I create educational content and solve conceptual coding problems, and I share those materials on my YouTube channel.</p>
+          <div class="tags">
+            <div class="tag">Islamic Theology</div>
+            <div class="tag">Quranic Studies</div>
+            <div class="tag">Mathematics</div>
+            <div class="tag">Web Development</div>
+            <div class="tag">EdTech</div>
+            <div class="tag">Content Writing</div>
+          </div>
 
-  <section id="skills" class="section">
-    <h2>Skills</h2>
-    <div class="skills">
-      <span>HTML</span>
-      <span>CSS</span>
-      <span>JavaScript</span>
-      <span>Python</span>
-      <span>GitHub</span>
-      <span>Content Writing</span>
-    </div>
-  </section>
+          <div class="social" aria-label="Social links" style="margin-top:18px">
+            <a href="https://www.linkedin.com" target="_blank" title="LinkedIn" aria-label="LinkedIn">
+              <!-- LinkedIn SVG -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="transparent"/><path d="M6.94 8.82h2.74V19H6.94V8.82zM8.31 6.86a1.58 1.58 0 110-3.16 1.58 1.58 0 010 3.16zM10.98 11.18c1.66 0 2.86.9 3.33 1.8V11.18h2.74V19h-2.74v-3.2c0-.95-.34-1.6-1.19-1.6-.65 0-1.03.44-1.2.86-.06.15-.08.36-.08.57V19H10.98v-7.82h0z" fill="currentColor"/></svg>
+            </a>
 
-  <section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="card">
-        <h3>Portfolio Website</h3>
-        <p>This is my personal website built using HTML, CSS, and GitHub Pages.</p>
-      </div>
-      <div class="card">
-        <h3>GitHub Projects</h3>
-        <p>Explore all my open-source projects on <a href="https://github.com/rifathasan" target="_blank">GitHub</a>.</p>
-      </div>
-      <div class="card">
-        <h3>Future Blog</h3>
-        <p>Coming soon — tutorials and insights on tech, learning, and growth.</p>
-      </div>
-    </div>
-  </section>
+            <a href="mailto:youremail@example.com" title="Email" aria-label="Email">
+              <!-- Mail SVG -->
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 8.5v7A2.5 2.5 0 005.5 18h13a2.5 2.5 0 002.5-2.5v-7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 7l-9 6L3 7" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
 
-  <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-    <div class="social-links">
-      <a href="https://github.com/rifathasan" target="_blank">GitHub</a>
-      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
-      <a href="https://medium.com" target="_blank">Medium</a>
+            <a href="https://www.facebook.com" target="_blank" title="Facebook" aria-label="Facebook">
+              <!-- Facebook SVG -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M15 8h2V5h-2c-1.1 0-2 .9-2 2v1H11v3h2v6h3v-6h2.5L19 8H15z" fill="currentColor"/></svg>
+            </a>
+
+            <a href="https://www.youtube.com" target="_blank" title="YouTube" aria-label="YouTube">
+              <!-- YouTube SVG -->
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 15l5.2-3L10 9v6zM21.6 8.2s-.2-1.6-.8-2.3c-.8-.8-1.7-.8-2.1-.9C15.8 4.8 12 4.8 12 4.8h-.1s-3.8 0-6.6.2c-.4 0-1.4.1-2.2.9-.6.7-.8 2.3-.8 2.3S2 9.9 2 11.5v1c0 1.6.2 3.3.2 3.3s.2 1.6.8 2.3c.8.8 1.8.8 2.3.9 1.7.2 7.1.2 7.1.2s3.8 0 6.6-.2c.4 0 1.4-.1 2.2-.9.6-.7.8-2.3.8-2.3s.2-1.7.2-3.3v-1c0-1.6-.2-3.3-.2-3.3z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <section id="skills" class="section fade-in delay">
+          <h2>Skills & Interests</h2>
+          <p style="color:var(--muted)">HTML, CSS, JavaScript, Python, Problem Solving, Islamic Studies, Mathematical Reasoning, Teaching.</p>
+        </section>
+
+        <section id="projects" class="section fade-in delay">
+          <h2>Projects</h2>
+          <div class="project-grid">
+            <div class="card">
+              <h3>Portfolio Website</h3>
+              <p>This site (simple, fast, and easy to update) — served via GitHub Pages.</p>
+            </div>
+            <div class="card">
+              <h3>GitHub Projects</h3>
+              <p>Explore my open-source work on GitHub.</p>
+            </div>
+            <div class="card">
+              <h3>YouTube Lectures</h3>
+              <p>Short lessons and problem walkthroughs on my channel.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="writings" class="section fade-in delay">
+          <h2>Writings</h2>
+          <p style="color:var(--muted)">I will publish stories, vlogs, and longer essays here. <a href="/writings.html" style="color:#a5b4fc">Open my Writings page</a> to see posts (coming soon).</p>
+        </section>
+      </div>
+
+      <aside class="side">
+        <div class="card fade-in">
+          <h3>Teaching & Platforms</h3>
+          <p>Part-time mathematics teacher on Mojaru and Lobdhi (edtech platforms). I create short lessons for conceptual clarity.</p>
+
+          <div class="links-list">
+            <a href="/learning-centre.html">Learning Centre — (My teaching space)</a>
+            <a href="https://youtube.com" target="_blank">YouTube Channel</a>
+            <a href="https://github.com/rifathasan" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div style="height:18px"></div>
+
+        <div class="card fade-in">
+          <h3>Contact</h3>
+          <p style="color:var(--muted)">Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+          <p style="color:var(--muted)">LinkedIn / Facebook links above — replace with your profiles.</p>
+        </div>
+      </aside>
     </div>
-  </section>
+  </main>
 
   <footer>
-    <p>© 2025 Rifat Hasan | Designed with ❤️ using GitHub Pages</p>
+    © 2025 Rifat Hasan — Built with care • Hosted on GitHub Pages
   </footer>
 
   <script>
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
-      });
-    });
+    // simple reveal on scroll
+    const reveals = document.querySelectorAll('.fade-in');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(ent=>{
+        if(ent.isIntersecting){ent.target.style.animationPlayState='running';ent.target.classList.remove('fade-in');}
+      })
+    },{threshold:0.12});
+    reveals.forEach(r=>obs.observe(r));
   </script>
 </body>
 </html>
