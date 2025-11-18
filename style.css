@@ -1,113 +1,95 @@
-/* Modern Dark Theme Styles for rifathasan.me */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rifat Hasan | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Rifat Hasan</div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#writings">Writings</a>
+        <a href="#learning">Learning Centre</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-/* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Inter:wght@300;400;600&display=swap');
+  <section class="hero" style="background-image: url('https://images.unsplash.com/photo-1505765056904-9a3d0b0d98a8?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=000');">
+    <div class="hero-overlay">
+      <h1>Hello, I’m Rifat Hasan</h1>
+      <p>Learner | Ed-Tech Teacher | Writer</p>
+      <p>A Muslim, believer, currently studying CSE at BRAC University. Interested in Islamic Theology, Quranic Interpretations, Mathematics, Coding Problems and Concepts. Upload my staff on YouTube. Part-time teaches Math on edtech platforms like Mojaru and Lobdhi.</p>
+      <div class="cta">
+        <a class="btn" href="#projects">View Projects</a>
+        <a class="btn-outline" href="writings.html">Writings</a>
+        <a class="btn-outline" href="learning-centre.html">Learning Centre</a>
+      </div>
+      <div class="quran-verse">Surah 82:6 — "يَا أَيُّهَا الْإِنسَانُ مَا غَرَّكَ بِرَبِّكَ الْكَرِيمِ"</div>
+      <div class="social-icons">
+        <a href="https://linkedin.com" target="_blank" title="LinkedIn">🔗</a>
+        <a href="mailto:youremail@example.com" title="Email">✉️</a>
+        <a href="https://facebook.com" target="_blank" title="Facebook">📘</a>
+        <a href="https://youtube.com" target="_blank" title="YouTube">▶️</a>
+      </div>
+    </div>
+  </section>
 
-body {
-    margin: 0;
-    padding: 0;
-    background: #0c0c0f;
-    color: #e4e4e7;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
+  <main>
+    <section id="about" class="bio">
+      <h2>About Me</h2>
+      <p>Assalamu Alaikum — I’m a CSE student at BRAC University with a deep interest in Islamic theology and Quranic interpretation alongside mathematics and programming. I create educational content and solve conceptual coding problems, sharing those materials on my YouTube channel.</p>
+    </section>
 
-/* Navigation Bar */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(20, 20, 25, 0.7);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-}
+    <section id="skills">
+      <h2>Skills & Interests</h2>
+      <p>HTML, CSS, JavaScript, Python, Problem Solving, Islamic Studies, Mathematical Reasoning, Teaching.</p>
+    </section>
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-}
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="card">
+          <h3>Portfolio Website</h3>
+          <p>This site is built with HTML, CSS, and GitHub Pages.</p>
+        </div>
+        <div class="card">
+          <h3>GitHub Projects</h3>
+          <p>Explore my open-source work on GitHub.</p>
+        </div>
+        <div class="card">
+          <h3>YouTube Lectures</h3>
+          <p>Short lessons and problem walkthroughs on my channel.</p>
+        </div>
+      </div>
+    </section>
 
-/* Hero Section */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
+    <section id="writings">
+      <h2>Writings</h2>
+      <p>I will publish stories, vlogs, and longer essays here. <a href="writings.html">Visit my Writings page</a>.</p>
+    </section>
 
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    padding: 40px;
-    border-radius: 12px;
-}
+    <section id="learning">
+      <h2>Learning Centre</h2>
+      <p>This section will host my part-time teaching content and resources. <a href="learning-centre.html">Visit Learning Centre</a>.</p>
+    </section>
 
-.quran-verse {
-    margin-top: 10px;
-    font-style: italic;
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    </section>
+  </main>
 
-/* Bio Section */
-.bio {
-    max-width: 750px;
-    margin: 60px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-    animation: fadeInUp 1s ease-in-out;
-}
+  <footer>
+    <p>© 2025 Rifat Hasan | Built with ❤️ using GitHub Pages</p>
+  </footer>
 
-.bio h2 {
-    margin-bottom: 10px;
-    font-size: 2rem;
-    font-weight: 600;
-    color: #fff;
-}
-
-/* Social Icons */
-.social-icons {
-    margin-top: 20px;
-    display: flex;
-    gap: 18px;
-}
-
-.social-icons a {
-    font-size: 1.7rem;
-    color: #cfcfd3;
-    transition: 0.3s;
-}
-
-.social-icons a:hover {
-    transform: scale(1.2);
-    color: #4fd1c5;
-}
-
-/* Footer */
-footer {
-    margin-top: 70px;
-    text-align: center;
-    padding: 20px;
-    opacity: 0.6;
-    font-size: 0.9rem;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
+</body>
+</html>
