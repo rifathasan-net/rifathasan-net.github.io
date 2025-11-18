@@ -93,3 +93,19 @@
 
 </body>
 </html>
+
+/* Writings Page Styles */
+#writing-list .card {
+  margin-bottom: 16px;
+}
+
+#writing-list a {
+  color: #06b6d4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+#writing-list a:hover {
+  text-decoration: underline;
+}
+
